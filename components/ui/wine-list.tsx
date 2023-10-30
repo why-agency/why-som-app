@@ -1,7 +1,6 @@
 'use client'
 
 import { useChat } from 'ai/react'
-import { Input } from './input'
 import { Textarea } from './textarea'
 import { Button } from './button'
 
@@ -27,23 +26,27 @@ export default function WineList() {
   return (
     <div className="w-full flex-1 grid grid-cols-2 grid-rows-[1fr,auto]">
       <div className="p-4 bg-gray-100 rounded-t-l-sm">
-        <h2 className="text-3xl font-medium mb-4">Menu</h2>
-        <ul className='divide-y-2'>
+        <h2 className="text-3xl font-medium mb-4">Menu 🍽</h2>
+        <ul className="divide-y-2">
           {messages
             .filter(m => m.role === 'user')
             .map((m, index) => (
-              <li className='py-4' key={index}>{m.content}</li>
+              <li className="py-4" key={index}>
+                {m.content}
+              </li>
             ))}
         </ul>
       </div>
 
       <div className="p-4 bg-slate-200 rounded-t-r-sm">
-        <h2 className="text-3xl font-medium mb-4">Wine List</h2>
-        <ul className='divide-y divide-slate-50'>
+        <h2 className="text-3xl font-medium mb-4">Wine List 🍷</h2>
+        <ul className="divide-y divide-slate-50">
           {messages
             .filter(m => m.role === 'assistant')
             .map((m, index) => (
-              <li className='py-4'  key={index}>{m.content}</li>
+              <li className="py-4" key={index}>
+                {m.content}
+              </li>
             ))}
         </ul>
       </div>
@@ -56,7 +59,7 @@ export default function WineList() {
           <Textarea
             value={input}
             onChange={handleInputChange}
-            placeholder="Add a dish"
+            placeholder="Add a dish to the menu, e.g. seared scallops on a bed of arugula with a lemon vinaigrette"
           />
           <Button className="mt-4 bg-white text-slate-900" type="submit">
             Pair 🍷
