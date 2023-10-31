@@ -18,7 +18,7 @@ export default function WineList() {
         id: 'frame2',
         role: 'system',
         content:
-          'Pair the following dish with wine. Name a specific wine. Then, describe your pairing in a single sentence.'
+          'Pair the following dish with wine. Structure your answer in the following way. Pair with: [wine name].</n>Why: [reasoning] in a single sentence.'
       }
     ]
   })
